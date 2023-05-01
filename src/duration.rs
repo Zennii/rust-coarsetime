@@ -13,37 +13,37 @@ impl Duration {
     /// Creates a new `Duration` from the specified number of seconds and
     /// additional nanosecond precision
     #[inline]
-    pub fn new(sec: u64, nanos: u32) -> Duration {
+    pub const fn new(sec: u64, nanos: u32) -> Duration {
         Duration(_timespec_to_u64(sec, nanos))
     }
 
     /// Creates a new Duration from the specified number of days
     #[inline]
-    pub fn from_days(days: u64) -> Duration {
+    pub const fn from_days(days: u64) -> Duration {
         Duration(_sec_to_u64(days * 86400))
     }
 
     /// Creates a new Duration from the specified number of hours
     #[inline]
-    pub fn from_hours(hours: u64) -> Duration {
+    pub const fn from_hours(hours: u64) -> Duration {
         Duration(_sec_to_u64(hours * 3600))
     }
 
     /// Creates a new Duration from the specified number of minutes
     #[inline]
-    pub fn from_mins(mins: u64) -> Duration {
+    pub const fn from_mins(mins: u64) -> Duration {
         Duration(_sec_to_u64(mins * 60))
     }
 
     /// Creates a new Duration from the specified number of seconds
     #[inline]
-    pub fn from_secs(secs: u64) -> Duration {
+    pub const fn from_secs(secs: u64) -> Duration {
         Duration(_sec_to_u64(secs))
     }
 
     /// Creates a new Duration from the specified number of milliseconds
     #[inline]
-    pub fn from_millis(millis: u64) -> Duration {
+    pub const fn from_millis(millis: u64) -> Duration {
         Duration(_millis_to_u64(millis))
     }
 
@@ -111,7 +111,7 @@ impl Duration {
     /// the same amount of time across different platforms, or from
     /// one version of `coarsetime` to another.
     #[inline]
-    pub fn from_ticks(ticks: u64) -> Duration {
+    pub const fn from_ticks(ticks: u64) -> Duration {
         Self::from_u64(ticks)
     }
 
@@ -123,7 +123,7 @@ impl Duration {
 
     #[doc(hidden)]
     #[inline]
-    pub fn from_u64(ts: u64) -> Duration {
+    pub const fn from_u64(ts: u64) -> Duration {
         Duration(ts)
     }
 
