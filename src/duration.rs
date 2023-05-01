@@ -1,11 +1,12 @@
 use std::convert::From;
 use std::ops::*;
 use std::time;
+use serde::{Serialize, Deserialize};
 
 use super::helpers::*;
 
 /// A duration type to represent an approximate span of time
-#[derive(Copy, Clone, Debug, Hash, Ord, Eq, PartialOrd, PartialEq, Default)]
+#[derive(Copy, Clone, Debug, Hash, Ord, Eq, PartialOrd, PartialEq, Default, Serialize, Deserialize)]
 pub struct Duration(u64);
 
 impl Duration {
